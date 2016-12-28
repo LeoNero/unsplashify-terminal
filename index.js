@@ -10,4 +10,3 @@ const URL = 'https://unsplash.com/photos/';
 let args = process.argv;
 
 let photoId = args[2];
-
