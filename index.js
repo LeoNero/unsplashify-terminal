@@ -17,13 +17,13 @@ let downloadURL = URL + photoId + '/download';
 
 let stream = fs.createWriteStream(dir + photoId)
   .on('info', info => {
-  
+
   })
   .on('data', data => {
-  
+    // MOSTRAR PORCENTAGEM DE DOWNLOAD 
   })
   .on('finish', () => {
-  
+    console.log('Download finished!');
   });
 
 request.get(downloadURL)
