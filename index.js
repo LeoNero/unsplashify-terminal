@@ -23,12 +23,24 @@ let stream = fs.createWriteStream(dir + photoId)
     // MOSTRAR PORCENTAGEM DE DOWNLOAD 
   })
   .on('finish', () => {
-    console.log('Download finished!');
+    console.log("Download finished");
+    setWallpaper();
   });
 
 request.get(downloadURL)
   .pipe(stream)
   .on('error', err => {
     console.log('Erro ao fazer download: ' + err);
-  });
+});
+
+
+function setWallpaper() {
+  wallpaper.set(dir + photoId) 
+    .then(() => {
+      console.log("Wallpaper setted");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
 
