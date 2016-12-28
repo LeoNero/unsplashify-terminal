@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/LeoNero/unsplashify-terminal/issues"
   },
-  "homepage": "https://github.com/LeoNero/unsplashify-terminal#readme"
+  "homepage": "https://github.com/LeoNero/unsplashify-terminal#readme",
+  "dependencies": {
+    "request": "^2.79.0",
+    "wallpaper": "^2.3.0"
+  }
 }
