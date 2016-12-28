@@ -17,18 +17,20 @@ let downloadURL = URL + photoId + '/download';
 
 let stream = fs.createWriteStream(dir + photoId)
   .on('info', info => {
-  
+
   })
   .on('data', data => {
-  
+
   })
   .on('finish', () => {
-  
+    wallpaper.set(dir + photoId).then(() =>{
+      console.log("wallpaper setado.");
+    });
   });
 
 request.get(downloadURL)
   .pipe(stream)
   .on('error', err => {
     console.log('Erro ao fazer download: ' + err);
-  });
+});
 
