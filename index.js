@@ -55,7 +55,7 @@ function showDownloadProgress(received, total) {
   let percentageRounded = Math.round(percentage);
   
   if (percentageRounded !== oldPercentage) {
-    console.log(`Download ${percentageRounded}%`);
+    console.log(`Download in progress: ${percentageRounded}%`);
     oldPercentage = percentageRounded;
   }
 }
