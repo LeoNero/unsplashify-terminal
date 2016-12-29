@@ -70,8 +70,8 @@ function setWallpaper() {
   let exec = require('child_process').exec;
   let cmd = 'gsettings set org.gnome.desktop.background picture-uri file://' + path.join(dir, photoId);
 
-  exec(cmd, function(error, stdout, stderr) {
-    console.log(stdout);
+  exec(cmd, (error, stdout, stderr) => {
+    console.log('Wallpaper set!');
   });
 }
 
