@@ -17,7 +17,14 @@ let downloadURL = URL + photoId + '/download';
 let totalBytes = 0;
 let receivedBytes = 0;
 
+checkIfFolderPhotosExists();
 downloadPhoto();
+
+function checkIfFolderPhotosExists() {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
+}
 
 function downloadPhoto() {
   let stream = fs.createWriteStream(dir + photoId)

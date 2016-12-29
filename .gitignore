@@ -1,5 +1,7 @@
 # Logs
 
+photos
+
 logs
 *.log
 npm-debug.log*
