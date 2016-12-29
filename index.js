@@ -71,14 +71,15 @@ function setWallpaper() {
   let cmd = 'gsettings set org.gnome.desktop.background picture-uri file://' + path.join(dir, photoId);
 
   exec(cmd, (err, stdout, stderr) => {
-    if (err instanceof Error) {
-      throw err;
+    if (error) {
+      console.error(`exec error: ${error}`);
+      return;
     } else {
-      console.log('Wallpaper set!');
+      console.log("Wallpaper set!");
     }
-
-    process.stderr.write(err);
-    process.stdout.write(out);
+    
+    console.log(`stdout: ${stdout}`);
+    console.log(`stderr: ${stderr}`); 
   });
 }
 
