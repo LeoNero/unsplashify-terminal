@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/LeoNero/unsplashify-terminal#readme",
   "dependencies": {
-    "request": "^2.79.0",
-    "wallpaper": "^2.3.0"
+    "request": "^2.79.0"
   }
 }

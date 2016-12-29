@@ -3,7 +3,6 @@
 'use strict';
 
 const request = require('request');
-const wallpaper = require('wallpaper');
 const fs = require('fs');
 const path = require('path');
 
@@ -31,7 +30,7 @@ function downloadPhoto() {
     method: 'GET',
     uri: downloadURL
   });
-  
+
   requestPhoto.pipe(stream);
 
   requestPhoto.on('response', data => {
@@ -49,11 +48,11 @@ function downloadPhoto() {
 }
 
 let oldPercentage = 0;
- 
+
 function showDownloadProgress(received, total) {
   let percentage = (received * 100) / total;
   let percentageRounded = Math.round(percentage);
-  
+
   if (percentageRounded !== oldPercentage) {
     console.log(`Download ${percentageRounded}%`);
     oldPercentage = percentageRounded;
@@ -61,12 +60,11 @@ function showDownloadProgress(received, total) {
 }
 
 function setWallpaper() {
-  wallpaper.set(dir + photoId) 
-    .then(() => {
-      console.log("Wallpaper setted");
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  let exec = require('child_process').exec;
+  let cmd = 'gsettings set org.gnome.desktop.background picture-uri file://' + path.join(dir, photoId);
+
+  exec(cmd, function(error, stdout, stderr) {
+    console.log(stdout);
+  });
 }
 
